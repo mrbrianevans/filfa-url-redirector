@@ -1,0 +1,21 @@
+---
+parser: '@typescript-eslint/parser'
+extends:
+  - 'eslint:recommended'
+  - 'plugin:node/recommended'
+  - prettier
+  - 'plugin:@typescript-eslint/recommended'
+plugins:
+  - node
+  - prettier
+  - '@typescript-eslint'
+parserOptions:
+  sourceType: module
+rules:
+  prettier/prettier: off
+  block-scoped-var: error
+  eqeqeq: error
+  no-warning-comments: warn
+  no-var: error
+  prefer-const: error
+  node/no-unsupported-features/es-syntax: off
