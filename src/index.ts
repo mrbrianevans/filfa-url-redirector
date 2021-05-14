@@ -8,18 +8,17 @@ charMap.set('c', 'company')
 
 app.get('/:char/:code', async (req: Request, res: Response) => {
   const {char, code} = req.params
-  console.log('Requested character', char)
-  console.log('Requested code', code)
   if (charMap.has(char)) {
     const url = `https://filterfacility.co.uk/${charMap.get(char)}/filter/${code}`
-    res.status(200).send('Redirect to ' + url)
+    console.log('Redirect to ' + url)
+    res.redirect(url)
   } else {
-    res.status(404).send('Invalid character')
+    res.status(404).send('Invalid url')
   }
 })
 // not a valid short url
 app.get('*', async (req: Request, res: Response) => {
-  res.status(404).send('Invalid url *')
+  res.status(404).send('Invalid url')
 })
 
 const PORT = process.env.PORT || 8080
